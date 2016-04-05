@@ -3,10 +3,10 @@
   apt_key: url=http://dl.hhvm.com/conf/hhvm.gpg.key state=present
 
 - name: Enable HHVM repo
-  apt_repository: repo="deb http://dl.hhvm.com/ubuntu {{ ansible_lsb.codename }} main" state=present
+  apt_repository: repo="deb http://dl.hhvm.com/ubuntu trusty-lts-3.12 main" state=present
 
 - name: Install HHVM
-  apt: name=hhvm state=present
+  apt: name=hhvm=3.12.1~trusty state=present
 
 - name: Do /etc/hhvm/server.ini
   template: src=etc/hhvm/server.ini dest=/etc/hhvm/server.ini owner=root group=root mode=0644
